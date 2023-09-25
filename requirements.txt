@@ -1,3 +1,4 @@
 dbt-metricflow
 # dbt-fal
 dbt-postgres
+dbt-trino
