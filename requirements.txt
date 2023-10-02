@@ -2,3 +2,5 @@ dbt-metricflow
 # dbt-fal
 dbt-postgres
 dbt-trino
+sqlalchemy
+psycopg2-binary
