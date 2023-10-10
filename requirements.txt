@@ -4,3 +4,5 @@ dbt-postgres
 dbt-trino
 sqlalchemy
 psycopg2-binary
+oracledb
+cx_Oracle
