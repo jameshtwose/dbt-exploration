@@ -54,9 +54,6 @@ Based on dbt + trino with a streamlit frontend.
     - `kubectl port-forward --namespace default svc/new-postgres-postgresql 5432:5432 &
     PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432`
     - `select * from pg_catalog.pg_tables;`
-- **Set up oracle**
-- `helm install new-oracle bitnami/oracle-xe-21c`
-
 
 ## Demo
 - `dbt init` - create a new dbt project
