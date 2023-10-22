@@ -19,7 +19,7 @@ Based on dbt + trino with a streamlit frontend.
 - `docker exec -it trino trino`
 - `select count(*) from tpch.sf1.nation;`
 
-## Usage (local - docker + kubernetes/ minikube + trino + postgres + kafka + zookeeper)
+## Usage (local - docker + kubernetes/ minikube + trino + mysql + postgres + kafka (TODO) + zookeeper (TODO) + oracledb)
 - `minikube start`
 - `minikube dashboard`
 - install [helm](https://helm.sh/docs/intro/install/)
@@ -54,6 +54,11 @@ Based on dbt + trino with a streamlit frontend.
     - `kubectl port-forward --namespace default svc/new-postgres-postgresql 5432:5432 &
     PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432`
     - `select * from pg_catalog.pg_tables;`
+- **Set up kafka**
+- `helm install new-kafka bitnami/kafka`
+- `kubectl get pods` - check that the container is running (check healthy)
+- `kubectl port-forward --namespace default svc/new-kafka 9092:9092`
+
 
 ## Demo
 - `dbt init` - create a new dbt project
