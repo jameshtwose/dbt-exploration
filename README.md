@@ -41,6 +41,7 @@ Based on dbt + trino with a streamlit frontend.
     - `exit`
     - leave the pod
         - `exit`
+    
 - **Set up postgres**
 - `helm install new-postgres bitnami/postgresql`
 - get the password
@@ -72,10 +73,16 @@ Based on dbt + trino with a streamlit frontend.
 - https://container-registry.oracle.com/ords/ocr/ba/database/enterprise
 - `docker pull container-registry.oracle.com/database/free:latest` or 
 - `docker pull container-registry-amsterdam.oracle.com/database/enterprise:19.3.0.0`
-- `docker run -d --name new-oracle -p 1530 container-registry.oracle.com/database/free:latest`
+- `docker run -d --name new-oracle -p 1530 -e ORACLE_PWD=pass container-registry.oracle.com/database/free:latest`
+- `docker run --name new-oracle -d -p 1521:1530 pvargacl/oracle-xe-18.4.0`
 - `docker ps` - check that the container is running (check healthy)
 - `docker port new-oracle`
+- `docker exec -it new-oracle bash` - open a bash shell in the container
+- `export ORACLE_PWD=pass` - set the password in the container
+- `printenv | sort` - check that the password is set
+- `exit` - exit the container
 - `docker exec -it new-oracle sqlplus / as sysdba`
+- `docker exec -it new-oracle sqlplus sys@FREE as sysdba`
 - `SELECT owner, table_name FROM dba_tables;`
 - `create user C##jms identified by mypassword;` - create a new user
 - list users
